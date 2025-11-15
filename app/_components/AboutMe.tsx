@@ -108,18 +108,6 @@ const AboutMe = () => {
                                 — a productivity & task-planning Android app published on the Google Play Store.
                             </p>
                             <p className="mt-3 slide-up-and-fade">
-                                You can also check out my project portfolio here:{' '}
-                                <a
-                                    href="https://planovaapps.github.io/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="font-medium text-foreground hover:text-primary transition-colors underline"
-                                >
-                                    planovaapps.github.io
-                                </a>
-                                .
-                            </p>
-                            <p className="mt-3 slide-up-and-fade">
                                 I’m currently improving my skills in Data Structures &
                                 Algorithms, AI/ML, and modern development tools while
                                 building projects that challenge me and help me grow.

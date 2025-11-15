@@ -56,3 +56,12 @@
         @apply pl-5 mt-2 list-disc;
     }
 }
+
+/* Disable text selection */
+* {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+

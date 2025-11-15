@@ -12,6 +12,7 @@ import CustomCursor from '@/components/CustomCursor';
 import ClientWrapper from '@/components/ClientWrapper';
 import Preloader from '../components/Preloader';
 import StickyEmail from './_components/StickyEmail';
+import AntiCopy from '@/components/AntiCopy';
 
 const antonFont = Anton({
     weight: '400',
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en">
         <body className={`${antonFont.variable} ${robotoFlex.variable} antialiased`}>
+        <AntiCopy />
         <ClientWrapper>
             <ReactLenis root options={{ lerp: 0.1, duration: 1.4 }}>
                 <Navbar />

@@ -79,24 +79,40 @@ export const PROJECTS: IProject[] = [
         liveUrl: 'https://play.google.com/store/apps/details?id=com.shaun.quickplan',
         year: 2025,
         description: `
-        QuickPlan is a modern To-Do List Android app designed with a clean and polished Material Design UI.
-        It includes advanced features such as:
+        Ever forget an important task, birthday, or meeting?
+        Struggle to keep your day organised? You're not alone — but with QuickPlan, staying on top of your life just got simpler.
+        <br><br>
+        QuickPlan is a clean, powerful daily planner and to-do list app designed to help you stay organised, set task reminders, and boost your productivity — all without needing an account.
+        Whether it’s a work project, a grocery list, or a birthday reminder — QuickPlan has your back.
         <br/><br/>
         <ul>
             <li>🔔 Smart task reminders with notification actions</li>
             <li>🎨 Infinite theme color customizations</li>
             <li>🌐 Multi-language support (English, Hindi, Marathi, French)</li>
+            <li>⭐ Star Important Tasks. Highlight what matters most.</li>
             <li>📅 Calendar screen with date-based task filtering</li>
             <li>🏷️ Colored task labels</li>
+            <li>🏃 Habits Tracker. Set, track, and build positive habits.</li>
             <li>🔍 Search + Sort functionality</li>
-            <li>🪟 Interactive home screen widget</li>
+            <li>📱 Interactive home screen widget</li>
         </ul>
+        <p> You can also check out my project portfolio here: 
+            <a 
+            href="https://planovaapps.github.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-foreground hover:text-primary transition-colors underline"
+            >
+            planovaapps.github.io
+            </a>
+            .
+        </p>
         `,
         role: `
         Sole Android Developer
         <ul>
             <li>Developed entire UI using Jetpack Compose</li>
-            <li>Implemented clean MVVM architecture with Hilt</li>
+            <li>Implemented clean MVVM architecture</li>
             <li>Integrated Room DB for persistent offline storage</li>
             <li>Designed widgets, notifications & animations</li>
         </ul>
@@ -105,8 +121,8 @@ export const PROJECTS: IProject[] = [
             "Kotlin",
             "Jetpack Compose",
             "Material Design 3",
-            "Hilt",
-            "Room DB"
+            "Room DB",
+            "ACRA"
         ],
         thumbnail:  '/projects/images/infinite_customizations.png',
         longThumbnail: '/projects/long/quickplan_promo_800x1000.png',

@@ -5,6 +5,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import React from 'react';
+import Typewriter from 'typewriter-effect';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -40,9 +41,28 @@ const Banner = () => {
                 ref={containerRef}
             >
                 <div className="max-md:grow max-md:flex flex-col justify-center items-start max-w-[544px]">
-                    <h1 className="banner-title slide-up-and-fade leading-[.95] text-6xl sm:text-[80px] font-anton">
-                        <span className="text-primary">ANDROID</span>
-                        <br/> <span className="ml-4">DEVELOPER</span>
+                    <h1 className="banner-title slide-up-and-fade leading-[.95] text-6xl sm:text-[80px] font-anton flex gap-3">
+                        <Typewriter
+                            options={{
+                                autoStart: true,
+                                loop: true,
+                                delay: 60,
+                                deleteSpeed: 40,
+                            }}
+                            onInit={(typewriter) => {
+                                typewriter
+                                    .typeString("STUDENT")
+                                    .pauseFor(1200)
+                                    .deleteAll()
+                                    .typeString("WEB DEVELOPER")
+                                    .pauseFor(1200)
+                                    .deleteAll()
+                                    .typeString("ANDROID DEVELOPER")
+                                    .pauseFor(1200)
+                                    .deleteAll()
+                                    .start();
+                            }}
+                        />
                     </h1>
                     <p className="banner-description slide-up-and-fade mt-6 text-lg text-muted-foreground">
                         Hi! I&apos;m{' '}
