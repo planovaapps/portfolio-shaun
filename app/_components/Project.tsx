@@ -103,7 +103,15 @@ const Project = ({ index, project, selectedProject, onMouseEnter }: Props) => {
     return (
         <TransitionLink
             href={`/projects/${project.slug}`}
-            className="project-item group leading-none py-5 md:border-b first:!pt-0 last:pb-0 last:border-none md:group-hover/projects:opacity-30 md:hover:!opacity-100 transition-all"
+            className="
+                project-item group
+                leading-none py-5
+                md:border-b first:!pt-0 last:pb-0 last:border-none
+                transition-all rounded-lg
+                md:hover:bg-white/5
+                md:hover:shadow-[0_0_30px_rgba(255,255,255,0.07)]
+                md:group-hover/projects:opacity-30 md:hover:!opacity-100
+            "
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >

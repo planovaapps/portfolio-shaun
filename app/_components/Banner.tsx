@@ -13,25 +13,44 @@ const Banner = () => {
     const containerRef = React.useRef<HTMLDivElement>(null);
 
     // move the content a little up on scroll
-    useGSAP(
-        () => {
-            const tl = gsap.timeline({
+    useGSAP(() => {
+        // Slide-up animation
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: containerRef.current,
+                start: 'bottom 70%',
+                end: 'bottom 10%',
+                scrub: 1,
+            },
+        });
+
+        tl.fromTo(
+            '.slide-up-and-fade',
+            { y: 0 },
+            { y: -150, opacity: 0, stagger: 0.02 },
+        );
+
+        // Count-up animation
+        const counters = gsap.utils.toArray<HTMLElement>('.count') as HTMLElement[];
+
+        counters.forEach((counter) => {
+            const finalValue = Number(counter.dataset.target ?? '0');
+            const obj = { val: 0 };
+
+            gsap.to(obj, {
+                val: finalValue,
+                duration: 2,
+                ease: 'power1.out',
                 scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: 'bottom 70%',
-                    end: 'bottom 10%',
-                    scrub: 1,
+                    trigger: counter,
+                    start: 'top 90%',
+                },
+                onUpdate: () => {
+                    counter.textContent = String(Math.round(obj.val));
                 },
             });
-
-            tl.fromTo(
-                '.slide-up-and-fade',
-                { y: 0 },
-                { y: -150, opacity: 0, stagger: 0.02 },
-            );
-        },
-        { scope: containerRef },
-    );
+        });
+    }, { scope: containerRef });
 
     return (
         <section className="relative overflow-hidden" id="banner">
@@ -57,7 +76,10 @@ const Banner = () => {
                                     .typeString("WEB DEVELOPER")
                                     .pauseFor(1200)
                                     .deleteAll()
-                                    .typeString("ANDROID DEVELOPER")
+                                    .typeString("ANDROID DEV")
+                                    .pauseFor(1200)
+                                    .deleteAll()
+                                    .typeString("PROBLEM SOLVER")
                                     .pauseFor(1200)
                                     .deleteAll()
                                     .start();
@@ -69,7 +91,7 @@ const Banner = () => {
                         <span className="font-medium text-foreground">
                             Shaun
                         </span>
-                        , a Computer Engineering student at Fr. Conceicao Rodrigues College of Engineering. I build
+                        , a Computer Engineering student at <span className="font-medium text-foreground">Fr. Conceicao Rodrigues College of Engineering</span>. I build
                         modern Android apps using Kotlin & Jetpack Compose, and
                         I also work with web technologies like HTML, CSS,
                         JavaScript, and React.
@@ -85,30 +107,27 @@ const Banner = () => {
                     </Button>
                 </div>
 
+                {/* RIGHT SIDE - STATISTICS */}
                 <div className="md:absolute bottom-[10%] right-[4%] flex md:flex-col gap-4 md:gap-8 text-center md:text-right">
-                    <div className="slide-up-and-fade">
-                        <h5 className="text-3xl sm:text-4xl font-anton text-primary mb-1.5">
-                            1+
+                    <div className="slide-up-and-fade group cursor-pointer">
+                        <h5 className="text-3xl sm:text-4xl font-anton text-primary group-hover:text-white transition-colors duration-300 mb-1.5">
+                            <span className="count" data-target="1">0</span>+
                         </h5>
-                        <p className="text-muted-foreground">
-                            Android Apps Built
-                        </p>
+                        <p className="text-muted-foreground text-sm">Published App</p>
                     </div>
-                    <div className="slide-up-and-fade">
-                        <h5 className="text-3xl sm:text-4xl font-anton text-primary mb-1.5">
-                            5+
+
+                    <div className="slide-up-and-fade group cursor-pointer">
+                        <h5 className="text-3xl sm:text-4xl font-anton text-primary group-hover:text-white transition-colors duration-300 mb-1.5">
+                            <span className="count" data-target="5">0</span>+
                         </h5>
-                        <p className="text-muted-foreground">
-                            Total Projects
-                        </p>
+                        <p className="text-muted-foreground text-sm">Projects Built</p>
                     </div>
-                    <div className="slide-up-and-fade">
-                        <h5 className="text-3xl sm:text-4xl font-anton text-primary mb-1.5">
+
+                    <div className="slide-up-and-fade group cursor-pointer">
+                        <h5 className="text-3xl sm:text-4xl font-anton text-primary group-hover:text-white transition-colors duration-300 mb-1.5">
                             CE
                         </h5>
-                        <p className="text-muted-foreground">
-                            B.Tech Student
-                        </p>
+                        <p className="text-muted-foreground">B.Tech Student</p>
                     </div>
                 </div>
             </div>

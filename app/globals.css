@@ -55,6 +55,21 @@
     .markdown-text ul {
         @apply pl-5 mt-2 list-disc;
     }
+
+    /* Gradient utilities */
+    .gradient-text {
+        @apply bg-gradient-to-r from-white via-white to-gray-500 bg-clip-text text-transparent;
+    }
+
+    /* Glow effects */
+    .glow-primary {
+        @apply shadow-[0_0_20px_rgba(255,136,0,0.3)];
+    }
+
+    /* Smooth transitions */
+    .transition-smooth {
+        @apply transition-all duration-300 ease-out;
+    }
 }
 
 /* Disable text selection */
