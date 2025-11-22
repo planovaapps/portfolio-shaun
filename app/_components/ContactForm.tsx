@@ -5,6 +5,8 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import Button from "@/components/Button";
+// @ts-ignore
+import confetti from "canvas-confetti";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -73,6 +75,13 @@ const ContactForm = () => {
                 setStatus('success');
                 setMessage('Thank you! Your message was sent successfully. I’ll reply soon!');
                 form.reset();
+
+                // Confetti animation
+                confetti({
+                    particleCount: 80,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                });
             } else {
                 throw new Error('Submission failed');
             }
@@ -141,7 +150,7 @@ const ContactForm = () => {
                             rows={5}
                             disabled={status === 'submitting'}
                             className="w-full px-4 py-3 bg-background border rounded-xl focus:ring-2 focus:ring-primary outline-none resize-none transition-all"
-                            placeholder="Tell me about your project..."
+                            placeholder="Type your message here..."
                         />
                     </div>
 

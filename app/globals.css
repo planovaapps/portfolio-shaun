@@ -56,19 +56,18 @@
         @apply pl-5 mt-2 list-disc;
     }
 
-    /* Gradient utilities */
-    .gradient-text {
-        @apply bg-gradient-to-r from-white via-white to-gray-500 bg-clip-text text-transparent;
-    }
-
-    /* Glow effects */
-    .glow-primary {
-        @apply shadow-[0_0_20px_rgba(255,136,0,0.3)];
-    }
-
-    /* Smooth transitions */
-    .transition-smooth {
-        @apply transition-all duration-300 ease-out;
+    .comet-particle {
+        position: fixed;
+        width: 4px;
+        height: 4px;
+        background: hsl(var(--foreground));
+        border-radius: 50%;
+        pointer-events: none;
+        box-shadow:
+                0 0 10px 2px hsl(var(--foreground) / 0.9),
+                0 0 20px 6px hsl(var(--foreground) / 0.5),
+                0 0 30px 12px hsl(var(--foreground) / 0.25);
+        transform: translate(-50%, -50%); /* This + xPercent/yPercent in GSAP = perfect centering */
     }
 }
 

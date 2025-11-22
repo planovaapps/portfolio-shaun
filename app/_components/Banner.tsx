@@ -41,6 +41,7 @@ const Banner = () => {
                 val: finalValue,
                 duration: 2,
                 ease: 'power1.out',
+                delay: 1.5,
                 scrollTrigger: {
                     trigger: counter,
                     start: 'top 90%',
@@ -118,7 +119,7 @@ const Banner = () => {
 
                     <div className="slide-up-and-fade group cursor-pointer">
                         <h5 className="text-3xl sm:text-4xl font-anton text-primary group-hover:text-white transition-colors duration-300 mb-1.5">
-                            <span className="count" data-target="5">0</span>+
+                            <span className="count" data-target="10">0</span>+
                         </h5>
                         <p className="text-muted-foreground text-sm">Projects Built</p>
                     </div>
