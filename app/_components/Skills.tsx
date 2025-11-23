@@ -57,6 +57,45 @@ const Skills = () => {
         { scope: containerRef },
     );
 
+    useGSAP(() => {
+        const logos = containerRef.current?.querySelectorAll('.skill-logo');
+
+        logos?.forEach((logo) => {
+
+            // On mouse enter → rotate to 360°
+            logo.addEventListener("mouseenter", () => {
+                gsap.killTweensOf(logo); // stop existing tweens
+
+                gsap.to(logo, {
+                    rotate: 360,
+                    duration: 0.7,
+                    ease: "power2.out",
+                    modifiers: {
+                        rotate: gsap.utils.unitize((val: number) => val % 360)
+                    }
+                });
+            });
+
+            // On mouse leave → rotate back to 0°
+            logo.addEventListener("mouseleave", () => {
+                gsap.killTweensOf(logo);
+
+                gsap.to(logo, {
+                    rotate: 0,
+                    duration: 0.7,
+                    ease: "power2.out",
+                    rotationShortest: true, // choose shortest way back
+                });
+            });
+        });
+
+        return () => {
+            logos?.forEach((logo) =>
+                logo.replaceWith(logo.cloneNode(true))
+            );
+        };
+    });
+
     return (
         <section id="my-stack" ref={containerRef}>
             <div className="container">
@@ -83,7 +122,7 @@ const Skills = () => {
                                                 alt={item.name}
                                                 width="40"
                                                 height="40"
-                                                className="max-h-10"
+                                                className="h-10 skill-logo"
                                             />
                                         </div>
                                         <span className="text-2xl capitalize">
@@ -123,7 +162,7 @@ const Skills = () => {
                                             alt={item.name}
                                             width="40"
                                             height="40"
-                                            className="h-10"
+                                            className="h-10 skill-logo"
                                         />
                                         <span className="text-2xl capitalize">
                                             {item.name}

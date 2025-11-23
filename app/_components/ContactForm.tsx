@@ -7,6 +7,8 @@ import { ScrollTrigger } from 'gsap/all';
 import Button from "@/components/Button";
 // @ts-ignore
 import confetti from "canvas-confetti";
+import Lottie from "lottie-react";
+import connectAnim from "@/public/assets/paper-plane.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -98,8 +100,16 @@ const ContactForm = () => {
     return (
         <section className="pb-section pt-10" id="contact">
             <div className="container max-w-3xl mx-auto" ref={container}>
-                <h2 className="text-4xl md:text-6xl font-thin mb-10 contact-animate">
+                <h2 className="text-4xl md:text-6xl font-thin mb-10 flex items-center gap-3 contact-animate">
                     Let&apos;s Connect
+                    <div className="w-12 md:w-16">
+                        <Lottie
+                            animationData={connectAnim}
+                            loop
+                            autoplay
+                            className="filter brightness-0 invert"
+                        />
+                    </div>
                 </h2>
 
                 <p className="text-muted-foreground mb-10 max-w-[500px] contact-animate">

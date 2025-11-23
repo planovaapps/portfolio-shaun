@@ -87,13 +87,24 @@ const Banner = () => {
                             }}
                         />
                     </h1>
-                    <p className="banner-description slide-up-and-fade mt-6 text-lg text-muted-foreground">
+                    <p className="banner-description slide-up-and-fade mt-6 text-lg text-muted-foreground group">
                         Hi! I&apos;m{' '}
                         <span className="font-medium text-foreground">
                             Shaun
                         </span>
-                        , a Computer Engineering student at <span className="font-medium text-foreground">Fr. Conceicao Rodrigues College of Engineering</span>. I build
-                        modern Android apps using Kotlin & Jetpack Compose, and
+                        , a Computer Engineering student at&nbsp;
+                        <a
+                            href="https://frcrce.ac.in/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-medium text-foreground transition-colors underline group-hover:text-primary"
+                        >
+                            <span className="font-medium text-foreground group-hover:text-primary">
+                              Fr. Conceicao Rodrigues College of Engineering
+                            </span>
+                        </a>
+                        .
+                        I build modern Android apps using Kotlin & Jetpack Compose, and
                         I also work with web technologies like HTML, CSS,
                         JavaScript, and React.
                     </p>

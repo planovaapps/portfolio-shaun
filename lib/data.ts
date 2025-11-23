@@ -147,7 +147,17 @@ export const PROJECTS: IProject[] = [
         ],
         description: `
         A classic Snake game built using Pygame with smooth movement, score tracking, 
-        collision handling, and increasing difficulty mechanics.
+        collision handling, and increasing difficulty mechanics.<br/>
+        <p> Project source code available 
+            <a 
+            href="https://github.com/planovaapps/pygame_showcase/tree/main/snake-game"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-foreground hover:text-primary transition-colors underline"
+            >
+            here
+            </a>
+        </p>
         `,
         role: `
         Python Developer

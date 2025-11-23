@@ -4,6 +4,9 @@ import { useState } from 'react';
 import { MoveUpRight } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { GENERAL_INFO, SOCIAL_LINKS } from '@/lib/data';
+import { useRef } from 'react';
+import Lottie, { LottieRefCurrentProps } from 'lottie-react';
+import emailAnimation from '@/public/assets/email.json';
 
 const COLORS = [
     'bg-yellow-500 text-black',
@@ -33,6 +36,7 @@ const MENU_LINKS = [
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const emailLottieRef = useRef<LottieRefCurrentProps>(null);
     const router = useRouter();
 
     return (
@@ -97,6 +101,7 @@ const Navbar = () => {
                             <p className="text-muted-foreground mb-5 md:mb-8">
                                 SOCIAL
                             </p>
+
                             <ul className="space-y-3">
                                 {SOCIAL_LINKS.map((link) => (
                                     <li key={link.name}>
@@ -104,7 +109,11 @@ const Navbar = () => {
                                             href={link.url}
                                             target="_blank"
                                             rel="noreferrer"
-                                            className="text-lg capitalize hover:underline"
+                                            className="text-lg capitalize relative
+                                                       after:content-[''] after:absolute after:left-0 after:bottom-0
+                                                       after:w-0 after:h-[2px] after:bg-current
+                                                       after:transition-all after:duration-300
+                                                       hover:after:w-full"
                                         >
                                             {link.name}
                                         </a>
@@ -146,11 +155,36 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                <div className="w-full max-w-[300px] mx-8 sm:mx-auto">
-                    <p className="text-muted-foreground mb-4">GET IN TOUCH</p>
-                    <a href={`mailto:${GENERAL_INFO.email}`}>
-                        {GENERAL_INFO.email}
-                    </a>
+                <div
+                    className="w-full max-w-[300px] mx-8 sm:mx-auto
+               flex items-center gap-2 group cursor-pointer"
+                    onMouseEnter={() => {
+                        emailLottieRef.current?.goToAndPlay(0, true);
+                    }}
+                    onMouseLeave={() => {
+                        emailLottieRef.current?.goToAndStop(0, true);
+                    }}
+                >
+                    {/* Small Lottie Icon */}
+                    <Lottie
+                        lottieRef={emailLottieRef}
+                        animationData={emailAnimation}
+                        autoplay={false}
+                        loop={false}
+                        className="w-15 h-15"
+                    />
+
+                    <div>
+                        <p className="text-muted-foreground leading-none text-sm">
+                            GET IN TOUCH
+                        </p>
+                        <a
+                            href={`mailto:${GENERAL_INFO.email}`}
+                            className="text-sm underline underline-offset-4 hover:opacity-80 transition"
+                        >
+                            {GENERAL_INFO.email}
+                        </a>
+                    </div>
                 </div>
             </div>
         </>
